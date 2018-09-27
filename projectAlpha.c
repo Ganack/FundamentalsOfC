@@ -33,7 +33,7 @@ node_t newUser(node_t linkList, int *numUsers);
 void accountMenu(node_t linkList);
 
 void addNewAccount(node_t linklist, char userID[]); /*Added userID*/
-void PayUser(node_t linkList, int amount);
+void PayUser(node_t linkList, myuserid);
 void TransferMoney(char accountNum1[],char accountNum2[],int amount);
 void WithdrawMoney(char accountNum[],int amount);
 void DepositMoney(char accountNum[],int amount);
@@ -45,6 +45,52 @@ int main(void)
     return 0;
 }
 
+void PayUser(node_t linkList, myuserid)
+{
+  char id[15];
+  double amount;
+  char accountNum1[10];
+   char accountNum2[10];
+
+  printf("What is the userid of the user you want to pay ?\n" );
+  scanf("%s", &id);
+
+  printf("How much do you want to pay ?\n");
+  scanf("%lf", &amount);
+
+  printf("What is the account number you want to pay ?\n");
+  scanf("%s", &accountNum2);
+
+  printf("With wich account do you want to pay?\n");
+  scanf("%s", &accountNum1);
+  
+node_t i;
+for(i = user; i != NULL; i = i->nextp)
+{
+if(strcmp(user.userid, id) == 0)
+{
+int j;
+for(j = 0; j < 6; j++)
+{
+if(strcmp(account[j].accountNum2, accountname) == 0)
+{
+account[j].accountNum2 += amount;
+myuserid.accountNum1 -= amount;
+printf("Mr/Miss %s has been paid \n",id );
+}
+else
+{
+printf("No account found with that account number \n" );
+}
+else
+{
+printf("No user find with that id \n" );
+}
+}
+}
+}
+
+}
 
 node_t newUser(node_t linkList, int *numUsers)
 {
